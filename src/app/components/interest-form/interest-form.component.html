@@ -1,1 +1,34 @@
-<p>interest-form works!</p>
+<form [formGroup]="interestForm">
+  <div>
+    <label for="initialInvestment">Initial Investment</label>
+    <input
+      type="number"
+      formControlName="initialInvestment"
+      placeholder="Enter initial investment"
+    />
+  </div>
+  <div>
+    <label for="annualInvestment">Annual Investment</label>
+    <input
+      type="number"
+      placeholder="Enter annual investment"
+      formControlName="annualInvestment"
+    />
+  </div>
+  <div>
+    <label for="">Expected Return(%)</label>
+    <input
+      type="number"
+      placeholder="Enter exected return"
+      formControlName="expectedReturn"
+    />
+  </div>
+  <div>
+    <label for="">Duration</label>
+    <input
+      type="number"
+      placeholder="Enter duration in years"
+      formControlName="duration"
+    />
+  </div>
+</form>
