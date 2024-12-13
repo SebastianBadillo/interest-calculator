@@ -1,5 +1,8 @@
+<!--FORM-->
 <form [formGroup]="interestForm" class="form">
+  <!--SECTION 1 (Initial Investment and Annual Investment)-->
   <section class="form_section">
+    <!--INITIAL INVESTMENT-->
     <div class="form_control_container">
       <label for="initialInvestment" class="form_label"
         >Initial Investment</label
@@ -13,12 +16,11 @@
         />
         @if(interestForm.get('initialInvestment')?.errors &&
         interestForm.get('initialInvestment')?.touched){
-        <p class="error_message">
-          {{ interestForm.get("initialInvestment")?.errors }}
-        </p>
+        <p class="error_message">The field must be numeric, not empty.</p>
         }
       </div>
     </div>
+    <!--ANNUAL INVESTMENT-->
     <div class="form_control_container">
       <label for="annualInvestment" class="form_label">Annual Investment</label>
       <div>
@@ -30,12 +32,14 @@
         />
         @if(interestForm.get('annualInvestment')?.errors &&
         interestForm.get('annualInvestment')?.touched){
-        <p class="error_message">El campo debe ser númerico, no vacío.</p>
+        <p class="error_message">The field must be numeric, not empty.</p>
         }
       </div>
     </div>
   </section>
+  <!--SECTION 2 (Expected Return and Duration)-->
   <section class="form_section">
+    <!--EXPECTED RETURN-->
     <div class="form_control_container">
       <label for="" class="form_label">Expected Return(%)</label>
       <div>
@@ -47,10 +51,11 @@
         />
         @if(interestForm.get('expectedReturn')?.errors &&
         interestForm.get('expectedReturn')?.touched){
-        <p class="error_message">El campo debe ser númerico, no vacío.</p>
+        <p class="error_message">The field must be numeric, not empty.</p>
         }
       </div>
     </div>
+    <!--DURATION-->
     <div class="form_control_container">
       <label for="" class="form_label">Duration</label>
       <div>
@@ -62,11 +67,12 @@
         />
         @if(interestForm.get('duration')?.errors &&
         interestForm.get('duration')?.touched){
-        <p class="error_message">El campo debe ser númerico, no vacío.</p>
+        <p class="error_message">The field must be numeric, not empty.</p>
         }
       </div>
     </div>
   </section>
+  <!--SECTION 3 (Button section) -->
   <section class="btn_section">
     <button class="form_btn" (click)="onSendForm()">Calculate</button>
   </section>
