@@ -4,6 +4,7 @@ import {
   FormGroup,
   FormsModule,
   ReactiveFormsModule,
+  Validators,
 } from '@angular/forms';
 
 @Component({
@@ -17,10 +18,49 @@ export class InterestFormComponent {
   interestForm: FormGroup = new FormGroup({});
   constructor(private formBuilder: FormBuilder) {
     this.interestForm = this.formBuilder.group({
-      initialInvestment: [''],
-      annualInvestment: [''],
-      expectedReturn: [''],
-      duration: [''],
+      initialInvestment: [
+        '',
+        [
+          Validators.required,
+          Validators.min(0),
+          Validators.pattern('^[0-9]*$'),
+        ],
+      ],
+      annualInvestment: [
+        '',
+        [
+          Validators.required,
+          Validators.min(0),
+          Validators.pattern('^[0-9]*$'),
+        ],
+      ],
+      expectedReturn: [
+        '',
+        [
+          Validators.required,
+          Validators.min(0),
+          Validators.pattern('^[0-9]*$'),
+        ],
+      ],
+      duration: [
+        '',
+        [
+          Validators.required,
+          Validators.min(0),
+          Validators.pattern('^[0-9]*$'),
+        ],
+      ],
     });
+  }
+
+  allowOnlyNumbers(event: any) {
+    const charCode = event.charCode || event.keyCode;
+    if (charCode < 48 || charCode > 57) {
+      return false;
+    }
+    return true;
+  }
+  onSendForm() {
+    console.log(this.interestForm);
   }
 }

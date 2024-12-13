@@ -1,34 +1,73 @@
-<form [formGroup]="interestForm">
-  <div>
-    <label for="initialInvestment">Initial Investment</label>
-    <input
-      type="number"
-      formControlName="initialInvestment"
-      placeholder="Enter initial investment"
-    />
-  </div>
-  <div>
-    <label for="annualInvestment">Annual Investment</label>
-    <input
-      type="number"
-      placeholder="Enter annual investment"
-      formControlName="annualInvestment"
-    />
-  </div>
-  <div>
-    <label for="">Expected Return(%)</label>
-    <input
-      type="number"
-      placeholder="Enter exected return"
-      formControlName="expectedReturn"
-    />
-  </div>
-  <div>
-    <label for="">Duration</label>
-    <input
-      type="number"
-      placeholder="Enter duration in years"
-      formControlName="duration"
-    />
-  </div>
+<form [formGroup]="interestForm" class="form">
+  <section class="form_section">
+    <div class="form_control_container">
+      <label for="initialInvestment" class="form_label"
+        >Initial Investment</label
+      >
+      <div>
+        <input
+          class="form_input"
+          formControlName="initialInvestment"
+          placeholder="Enter initial investment"
+          (keypress)="allowOnlyNumbers($event)"
+        />
+        @if(interestForm.get('initialInvestment')?.errors &&
+        interestForm.get('initialInvestment')?.touched){
+        <p class="error_message">
+          {{ interestForm.get("initialInvestment")?.errors }}
+        </p>
+        }
+      </div>
+    </div>
+    <div class="form_control_container">
+      <label for="annualInvestment" class="form_label">Annual Investment</label>
+      <div>
+        <input
+          class="form_input"
+          (keypress)="allowOnlyNumbers($event)"
+          formControlName="annualInvestment"
+          placeholder="Enter annual investment"
+        />
+        @if(interestForm.get('annualInvestment')?.errors &&
+        interestForm.get('annualInvestment')?.touched){
+        <p class="error_message">El campo debe ser númerico, no vacío.</p>
+        }
+      </div>
+    </div>
+  </section>
+  <section class="form_section">
+    <div class="form_control_container">
+      <label for="" class="form_label">Expected Return(%)</label>
+      <div>
+        <input
+          class="form_input"
+          (keypress)="allowOnlyNumbers($event)"
+          placeholder="Enter exected return"
+          formControlName="expectedReturn"
+        />
+        @if(interestForm.get('expectedReturn')?.errors &&
+        interestForm.get('expectedReturn')?.touched){
+        <p class="error_message">El campo debe ser númerico, no vacío.</p>
+        }
+      </div>
+    </div>
+    <div class="form_control_container">
+      <label for="" class="form_label">Duration</label>
+      <div>
+        <input
+          class="form_input"
+          (keypress)="allowOnlyNumbers($event)"
+          placeholder="Enter duration in years"
+          formControlName="duration"
+        />
+        @if(interestForm.get('duration')?.errors &&
+        interestForm.get('duration')?.touched){
+        <p class="error_message">El campo debe ser númerico, no vacío.</p>
+        }
+      </div>
+    </div>
+  </section>
+  <section class="btn_section">
+    <button class="form_btn" (click)="onSendForm()">Calculate</button>
+  </section>
 </form>
