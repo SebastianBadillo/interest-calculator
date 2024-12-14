@@ -1,0 +1,15 @@
+table {
+  color: white; /* White text color */
+  text-align: center;
+  font-family: "Montserrat", sans-serif; /* Montserrat font */
+  border-collapse: separate;
+  border-spacing: 0 30px; /* 10px space between rows */
+  width: 800px;
+  margin: 0 auto;
+}
+thead th {
+  // border-bottom: 2px solid white; /* White border for header */
+}
+tbody tr {
+  // border-bottom: 1px solid white; /* White row separators */
+}

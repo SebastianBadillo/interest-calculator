@@ -9,20 +9,15 @@
     </tr>
   </thead>
   <tbody>
-    <!-- <tr *ngFor="let investment of investments">
-      <td>{{ investment.year }}</td>
-      <td>{{ investment.investmentValue }}</td>
-      <td>{{ investment.interestYear }}</td>
-      <td>{{ investment.totalInterest }}</td>
-      <td>{{ investment.investedCapital }}</td>
-    </tr> -->
     @for(row of annualData; track $index){
     <tr>
       <td>{{ row.year }}</td>
-      <td>{{ row.valueEndOfYear }}</td>
-      <td>{{ row.interest }}</td>
-      <td>{{ row.totalInterest }}</td>
-      <td>{{ row.totalAmountInvested }}</td>
+      <td>{{ row.valueEndOfYear | currency : "USD" : "symbol" : "1.2-2" }}</td>
+      <td>{{ row.interest | currency : "USD" : "symbol" : "1.2-2" }}</td>
+      <td>{{ row.totalInterest | currency : "USD" : "symbol" : "1.2-2" }}</td>
+      <td>
+        {{ row.totalAmountInvested | currency : "USD" : "symbol" : "1.2-2" }}
+      </td>
     </tr>
 
     }

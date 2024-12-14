@@ -6,11 +6,12 @@ import {
   WritableSignal,
 } from '@angular/core';
 import { InterestForm } from '../../interfaces/interestForm.interface';
+import { CurrencyPipe } from '@angular/common';
 
 @Component({
   selector: 'app-table',
   standalone: true,
-  imports: [],
+  imports: [CurrencyPipe],
   templateUrl: './table.component.html',
   styleUrl: './table.component.scss',
 })
@@ -34,6 +35,10 @@ export class TableComponent {
   calculateInvestmentResults(form: InterestForm) {
     const { initialInvestment, annualInvestment, expectedReturn, duration } =
       form;
+    console.log(typeof initialInvestment);
+    console.log(typeof annualInvestment);
+    console.log(typeof expectedReturn);
+    console.log(typeof duration);
     const annualData = [];
     let investmentValue = initialInvestment;
     for (let i = 0; i < duration; i++) {

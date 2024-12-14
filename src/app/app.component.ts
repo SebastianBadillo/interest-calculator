@@ -15,6 +15,12 @@ export class AppComponent {
   title = '03-interest_calculator';
   form: WritableSignal<InterestForm | null> = signal(null);
   onFormSubmit(form: InterestForm) {
-    this.form.set(form);
+    const numberForm = {
+      initialInvestment: +form.initialInvestment,
+      annualInvestment: +form.annualInvestment,
+      expectedReturn: +form.expectedReturn,
+      duration: +form.duration,
+    };
+    this.form.set(numberForm);
   }
 }
