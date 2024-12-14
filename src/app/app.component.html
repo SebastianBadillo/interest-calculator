@@ -5,6 +5,11 @@
   <section class="form_wrapper">
     <app-interest-form (formSubmit)="onFormSubmit($event)"></app-interest-form>
   </section>
+  @if(form()){
+  <section class="table_wrapper">
+    <app-table [formSignal]="form"></app-table>
+  </section>
+  }
 </main>
 
 <router-outlet />

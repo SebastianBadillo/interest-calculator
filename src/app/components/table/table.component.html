@@ -1,0 +1,30 @@
+<table>
+  <thead>
+    <tr>
+      <th>Year</th>
+      <th>Investment Value</th>
+      <th>Interest (Year)</th>
+      <th>Total Interest</th>
+      <th>Invested Capital</th>
+    </tr>
+  </thead>
+  <tbody>
+    <!-- <tr *ngFor="let investment of investments">
+      <td>{{ investment.year }}</td>
+      <td>{{ investment.investmentValue }}</td>
+      <td>{{ investment.interestYear }}</td>
+      <td>{{ investment.totalInterest }}</td>
+      <td>{{ investment.investedCapital }}</td>
+    </tr> -->
+    @for(row of annualData; track $index){
+    <tr>
+      <td>{{ row.year }}</td>
+      <td>{{ row.valueEndOfYear }}</td>
+      <td>{{ row.interest }}</td>
+      <td>{{ row.totalInterest }}</td>
+      <td>{{ row.totalAmountInvested }}</td>
+    </tr>
+
+    }
+  </tbody>
+</table>
